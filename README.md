@@ -19,32 +19,85 @@ To write a program to perform linear search and binary search using python progr
 ## Program:
 i)	#Use a linear search method to match the item in a list.
 ```
-
-
-
+def linearSearch(array,n,k):
+    array.sort()
+    for i in range(n):
+        if array[i]==k:
+            return i
+    return -1
+            
+array = eval(input())
+k = eval(input()) # k-item to be seared for
+n=len(array)
+result =linearSearch(array,n,k) # use the function for linear search
+if result!=-1:
+    print(array,'\nElement found at index: ',result)
+else:
+    print(array,'\nElement not found')
 ```
 ii)	# Find the element in a list using Binary Search(Iterative Method).
 ```
-
-
-
-
-
+def binarySearchIter(array, k, low, high):
+    while low<=high:
+        mid=(high+low)//2
+        if array[mid]==k:
+            return mid+1
+        elif array[mid]<k:
+            low=mid+1
+        else:
+            high=mid-1
+    else:
+        return -1
+array = eval(input())
+k = eval(input()) 
+array.sort()
+low,high=0,len(array)-1
+result=binarySearchIter(array, k, low, high)
+if result!=-1:
+    print(array)
+    print('Element found at index: ',result-1)
+else:
+    print(array)
+    print('Element not found')
 ```
 iii)	# Find the element in a list using Binary Search (recursive Method).
 ```
-
-
-
-
-
+def binarySearchIter(array, k, low, high):
+    if low<=high:
+        mid=(high+low)//2
+        if array[mid]==k:
+            return mid
+        elif array[mid]<k:
+            return binarySearchIter(array, k,mid+1, high)
+        else:
+            return binarySearchIter(array, k,low,mid-1)
+    else:
+        return -1
+array = eval(input())
+k = eval(input()) 
+array.sort()
+low,high=0,len(array)-1
+result=binarySearchIter(array, k, low, high)
+if result!=-1:
+    print(array)
+    print('Element found at index: ',result)
+else:
+    print(array)
+    print('Element not found')
 ```
 ## Sample Input and Output
 
+PROGRAM 1
 
+![Alt text](<Linear search 1.png>)
 
+PROGRAM 2
 
+![Alt text](<Linear search 2.png>)
 
+PROGRAM 3
+
+![Alt text](<Linear search 3.png>)
 
 ## Result
 Thus the linear search and binary search algorithm is implemented using python programming.
